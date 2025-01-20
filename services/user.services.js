@@ -1,7 +1,7 @@
 
 const User = require("../models/Users")
 
-function createUser(userData) {
+const createUser= async(userData)=> {
     const user = new User(userData);
     return user.save();
 }
@@ -74,56 +74,9 @@ module.exports = {
     createUser,
     getAllUsers,
     getUserByEmail,
+    addUsers
+    updateUser
 } 
-
-
-
-const http = require('http'); // Correctly import the http module
-
-// import db here
-const { connectDB } = require("./config/config")
-
-const { createUser, getAllUsers, getUserByEmail } = require("./controllers/users.controller")
-connectDB()
-
-// create the user data object
-const createUser = {
-    username: "n3n3",
-    first_name: "David",
-    last_name: "Nene",
-    email: "nene.david.019@gmail.com",
-    phone_number: "0796619346", // phone code (country code for our case its +254 - xxx-000)
-    county: "Nairobi",
-    country: "Kenya",
-    password: "password12345"
-}
-
-const userId =
-
-// createUser(newUser)
-// .then(user => console.log("user uploaded to db", user))
-// .catch(err => console.log("error uploading user to db", err))
-
-getAllUsers()
-.then(users => console.log("all users", users))
-.catch(err => console.log("error fetching all users", err))
-
-updateUser(userIdupdateUserData)
-
-
-const email = newUser.email
-getUserByEmail(email)
-.then(user => {
-    if (user) {
-        console.log("user found", user)
-    } else {
-        console.log("user not found")
-    }
-})
-.catch(err => console.log("error fetching all users", err)) 
-
-
-
 
 
 

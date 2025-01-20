@@ -1,20 +1,11 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
+
 const Schema = mongoose.Schema;
 
-const StudentsSchema =  new Schema({
-    username: {type: String, required: true},
-    first_name: {type: String, required: true},
-    last_name: {type: String, required: true},
-    email: {type: String, required: true, unique: true}, 
-    phone_number: {type: Number, required: true}, 
-    county: {type: String, required: true},
-    country: {type: String, required: true},
-    password: {type: String, required: true}, 
-    role: {type: String, enum: ["user", "client", "guest", "admin", "superAdmin"], default: "user"}
-    
-})
+const studentSchema = new Schema({
+  name: { type: String, required: true },
+  registrationNumber: { type: String, required: true, unique: true },
+  grade: { type: String, required: true },
+});
 
-
-module.exports = mongoose.model("Students", StudentsSchema)
-
-
+module.exports = mongoose.model("Students", studentSchema)

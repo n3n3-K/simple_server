@@ -1,6 +1,8 @@
-const Teachers = require("../models/Teachers")
+const Teachers = require("../models/Teacher")
 
-function createTeacher(TeacherData) {
-    const teacher = new teacher(teacherData);
+function createTeacher(teacherData) {
+    const teacher = new Teachers(teacherData);
     return teacher.save();
 }
+
+module.exports = {createTeacher}

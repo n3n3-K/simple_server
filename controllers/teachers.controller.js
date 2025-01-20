@@ -1,19 +1,30 @@
-const { createTeacher, getAllTeachers, getTeacherByEmail, getTeacher, updateTeacher, deleteTeacher } = require("../services/teacher.services")
+const Teacher= require('../models/Teacher')
+const handleValidationError =  ('../middleware/errorHandler')
 
-
-const createTeachersController = async (req, res) => {
+const createTeacher = async (req, res) => {
     try {
-        const TeacherData = req.body 
-        const teacher = await createTeacher(TeacherData)
+        const { teacherName, email, subject } = req.body;
 
-        res.status(201).json({ message: 'Teacher created successfully', Teacher });
+        if (!teacherName || !email || !subject)   {
+            handleValidationError("Please fill in all fields")
+        // } || $ && > < == logic
+        
+        const newTeacher = await Teacher.create({
+            teacherName,
+            email,
+            subject
+        })
 
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
+        res.status(200).json({
+            message: "Teacher created successfully",
+            teacher: newTeacher
+        })
+        } catch (error) {
+            res.status(500).json({ message: "Error creating teacher" })
+            }
 }
 
 
 module.exports = {
-    createTeachersController
+    createTeacher
 }

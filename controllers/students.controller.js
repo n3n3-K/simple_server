@@ -1,19 +1,30 @@
-const { createStudent, getAllStudents, getStudentByEmail, getStudent, updateStudent, deleteStudent } = require("../services/student.services")
+const Student = require('../models/Students')
+const handleValidationError = ( '../middleware/errorHandler')
 
-
-const createstudentsController = async (req, res) => {
+const createStudent = async (req, res) => {
     try {
-        const StudentData = req.body 
-        const student = await createStudent(StudentData)
+        const { studentName, registrationNumber, grade } = req.body;
 
-        res.status(201).json({ message: 'Student created successfully', student });
+        if (!studentName || !registrationNumber || !grade)   {
+            handleValidationError("Please fill in all fields")
+        }
+        
+        const newStudent = await Student.create({
+            studentName,
+            registrationNumber,
+            grade
+        })
 
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
+        res.status(200).json({
+            message: "Student created successfully",
+            student: newStudent
+        })
+        } catch (error) {
+            res.status(500).json({ message: "Error creating student" })
+        }
 }
 
 
 module.exports = {
-    createstudentsController
+    createStudent
 }
