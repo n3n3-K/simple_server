@@ -87,5 +87,9 @@ const deleteAdminProfile = async (req, res) => {
 
 
 module.exports= {
-    adminSignup
+    adminSignup,
+    deleteAdminProfile,
+    getAdminProfile,
+    getAllAdminProfiles,
+    updateAdminProfile,
 }

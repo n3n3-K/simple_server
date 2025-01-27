@@ -22,7 +22,7 @@ const createClass = async (req, res) => {
         }
 }
 
-const createClassProfile = async (req, res) => {
+const getClassProfile = async (req, res) => {
     try {
         const { email } = req.params
         const admin = await getClass(email)
@@ -61,7 +61,7 @@ const deleteClassProfile = async (req, res) => {
         const { email } = req.params
         const admin = await deleteClass(email)
 
-        res.status(200).json({ message: 'Class deleted successfully', class });
+        res.status(200).json({ message: 'Class deleted successfully', data class });
 
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -71,5 +71,9 @@ const deleteClassProfile = async (req, res) => {
 
 
 module.exports= {
-    createClass
+    createClass,
+    getAllClassProfiles,
+    updateClassProfile,
+    deleteClassProfile,
+    getClassProfile,
 }

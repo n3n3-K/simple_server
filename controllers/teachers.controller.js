@@ -19,6 +19,7 @@ const createTeacher = async (req, res) => {
             message: "Teacher created successfully",
             teacher: newTeacher
         })
+        }
         } catch (error) {
             res.status(500).json({ message: "Error creating teacher" })
             }
@@ -83,4 +84,4 @@ module.exports = {
     getAllTeachersProfile,
     getTeacherProfile,
 }
-}
+

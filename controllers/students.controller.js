@@ -77,6 +77,9 @@ const deleteStudentProfile = async (req, res) => {
 
 
 module.exports = {
-    createStudent
-    getStudentProfile
+    createStudent,
+    getStudentProfile,
+    getAllStudentProfile,
+    deleteStudentProfile,
+    updateStudentProfile
 }
