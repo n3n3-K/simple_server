@@ -1,6 +1,6 @@
 const { createUser, getAllUsers, getUserByEmail, updateUser, deleteUser, updateUser } = require("../services/user.services")
 
-const userSignup= async(res, req)=> {
+const userSignup= async(res, req)=>{
     
     try{
         const userData= req.body
@@ -16,15 +16,15 @@ const userSignup= async(res, req)=> {
             });
         }
     
-        const user= await createUser(userData){
+        const user= await createUser(userData)
             res.status(201).json({
                 message: 'user created successfully';
                 user
             });
         }
-        catch(error)
-        res.status(500).json({
-             error.error.message
+        catch(error){
+          return res.status(500).json({
+             error:error.message
         });
     }
 }
@@ -203,12 +203,12 @@ const userName = async (res,req) =>{
       
       catch (error) {
           res.status(500).json({
-              error.message.error
+              error:message.error
           });
       
     }
   }
-}
+
 
 const phone_number=async(req,res) =>{
     try {
@@ -225,8 +225,8 @@ const phone_number=async(req,res) =>{
      message:'Phone number already in use',
    });
    }
-   const phone_number= await create.phone_number{
-   res.status(200).json({
+   const phone_number= await create.phone_number()
+       return res.status(200).json({
    message:'phone number created successfully',
    user
    });
@@ -236,7 +236,7 @@ const phone_number=async(req,res) =>{
    return {  message: error.message };
  }
 }
-}
+
 
 
 module.exports = {
@@ -247,4 +247,4 @@ module.exports = {
     resetPassword,
     changePassword,
     createUserController
-} v
+} 
