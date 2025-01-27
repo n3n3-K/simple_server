@@ -79,7 +79,11 @@ const deleteStudentProfile = async (req, res) => {
 module.exports = {
     createStudent,
     getStudentProfile,
+<<<<<<< HEAD
     getAllStudentProfile,
     deleteStudentProfile,
     updateStudentProfile
+=======
+    
+>>>>>>> 4a31b11de239363cab17184f8429cfa4752e7523
 }

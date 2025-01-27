@@ -8,9 +8,9 @@ const teachersRoutes = require("../teachers.routes")
 
 
 // main app routes
-routing.use('/api/v1',authRoutes);
-routing.use('/api/v1', usersRoutes)
-routing.use('/api/v1', teachersRoutes)
+routing.use('/api/v1/auth',authRoutes);
+routing.use('/api/v1/users', usersRoutes)
+routing.use('/api/v1/classes', teachersRoutes)
 
 
 // admin routes

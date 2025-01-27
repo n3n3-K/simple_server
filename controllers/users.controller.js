@@ -12,13 +12,13 @@ const userSignup= async(res, req)=>{
         }
         if (userData.password.length< 6){
             return res.status(400).json({
-                message: ' password must be atleast 6 characters';
+                message: ' password must be atleast 6 characters',
             });
         }
     
         const user= await createUser(userData)
             res.status(201).json({
-                message: 'user created successfully';
+                message: 'user created successfully',
                 user
             });
         }
