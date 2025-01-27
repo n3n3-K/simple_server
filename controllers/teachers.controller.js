@@ -19,10 +19,12 @@ const createTeacher = async (req, res) => {
             message: "Teacher created successfully",
             teacher: newTeacher
         })
+    }
         } catch (error) {
             res.status(500).json({ message: "Error creating teacher" })
             }
-}
+    }
+
 
 const getTeacherProfile = async (req, res) => {
     try {
@@ -83,4 +85,4 @@ module.exports = {
     getAllTeachersProfile,
     getTeacherProfile,
 }
-}
+
