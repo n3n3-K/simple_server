@@ -19,11 +19,9 @@ const createTeacher = async (req, res) => {
             message: "Teacher created successfully",
             teacher: newTeacher
         })
-<<<<<<< HEAD
-        }
-=======
     }
->>>>>>> 4a31b11de239363cab17184f8429cfa4752e7523
+        
+    
         } catch (error) {
             res.status(500).json({ message: "Error creating teacher" })
             }

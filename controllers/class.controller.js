@@ -1,4 +1,4 @@
-const Class = require('../models/Class') // Todo: user the Class services.js file with functions like Create, getClasses
+const Class = require('../models/class') // Todo: user the Class services.js file with functions like Create, getClasses
 const handleValidationError =  ('../middleware/errorHandler')
 
 
@@ -59,11 +59,11 @@ const getAllClassProfiles = async (req, res) => {
 const updateClassProfile = async (req, res) => {
     try {
         const { email } = req.params
-        const class = await updateClass(email) 
+        const classData = await updateClass(email) 
 
         res.status(200).json({ 
             message: 'Class updated successfully', 
-            class
+            classData
          }); // TODOFIX: error with tha appropiate data variable i.e data: classData
 
     } catch (error) {
@@ -74,17 +74,14 @@ const updateClassProfile = async (req, res) => {
 const deleteClassProfile = async (req, res) => {
     try {
         const { email } = req.params
-        const admin = await deleteClass(email)
+        const classData = await deleteClass(email)
 
-<<<<<<< HEAD
-        res.status(200).json({ message: 'Class deleted successfully', data class });
+        res.status(200).json({ message: 'Class deleted successfully', classData });
 
-=======
         res.status(200).json({ 
             message: 'Class deleted successfully', 
-            class 
+            classData
         }); // TODOFIX: error with tha appropiate data variable i.e data: classData
->>>>>>> 4a31b11de239363cab17184f8429cfa4752e7523
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

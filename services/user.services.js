@@ -16,7 +16,7 @@ const createUser= async(userData)=> {
     }
     const getUserByEmail = async (email) => {
         try {
-            const user = await User.findOne({ email });
+            const user = await User.findOne({ id });
     
             if (!user) {
                 console.log('User not found');
@@ -32,41 +32,39 @@ const createUser= async(userData)=> {
 
 
 // delete a user by ID
-const findByIdAndDelete = async () =>{
+const deleteUser = async () =>{
     
     try {
         const user = await User.findByIdAndDelete(id);
         if (!user) {
             console.log('User not found');
-            return null;
+            return user;
         }
     
     } catch (error) {
-        console.log( errors );
+        console.log( error );
     }
 
 }
 
 // Function to add multiple users
- async function addUsers (userData){ 
+ const addUsers= async  (userData) => { 
     try {
-        const result = await User.insertMany(userData);
-        return result; 
+        const user = await User.insertMany(userData);
+        return user; 
     } catch (error) {
-        console.log(errors);
+        console.log(error);
          
     }
 }
 const updateUser = async (id, userUpdateData) =>{
     try{
-        const user = await user.findByIdAndUpdate;
+        const user = await user.findByIdAndUpdate({id, userUpdate});
         return user;
     }
     catch(error){
         console.log(error);
-        throw new Error('could not update user');
     }
-    const deleteUser = async (id)
     
 }
 
@@ -74,8 +72,8 @@ module.exports = {
     createUser,
     getAllUsers,
     getUserByEmail,
-    addUsers
-    updateUser
+    addUsers,
+    updateUser,
 } 
 
 

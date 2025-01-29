@@ -1,4 +1,4 @@
-const { createUser, getAllUsers, getUserByEmail, updateUser, deleteUser, updateUser } = require("../services/user.services")
+const { createUser, getAllUsers, getUserByEmail, updateUser, deleteUser,  } = require("../services/user.services")
 
 const userSignup= async(res, req)=>{
     

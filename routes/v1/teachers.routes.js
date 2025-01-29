@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 
-const { createTeacher, deleteTeacherProfile, getAllTeachersProfile, getTeacherProfile, } = require('../../controllers/teacher.controller')
+const { createTeacher, deleteTeacherProfile, getAllTeachersProfile, getTeacherProfile,updateTeacherProfile } = require('../../controllers/teacher.controller')
+const { authenticateRequest, } = require("../../middleware/auth.middleware")
 
 
-router.post('/create/new-teacher', createTeacher)
-router.get("/all/teachers", getAllTeachersProfile) // ToDo finish up on the route importations
+router.post("/create/teacher", authenticateRequest, createTeacherProfile,)
+router.get("/get/teacher/:email", authenticateRequest, getTeacherProfile,)
+router.get("/get/all/teacher", authenticateRequest,getAllTeacherProfiles,)
+router.put("/update/teacher/:email", authenticateRequest, updateStudentProfile,)
+router.delete("/delete/teacher/:email", authenticateRequest, deleteTeacherProfile,) 
 
 
 module.exports = router
