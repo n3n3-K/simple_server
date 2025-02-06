@@ -26,8 +26,8 @@ const createClass = async (req, res) => {
 
 const getClassProfile = async (req, res) => {
     try {
-        const { email } = req.params
-        const classData = await getClass(email) // example here  
+        const { streamCode} = req.params
+        const classData = await getClass(streamCode) // example here  
 
         res.status(200).json({ 
             message: 'Class gotten successfully', 
@@ -42,8 +42,7 @@ const getClassProfile = async (req, res) => {
 
 const getAllClassProfiles = async (req, res) => {
     try {
-        const { email } = req.params
-        const allClassData = await getAllClass(email)
+        const allClassData = await getAllClass()
 
         res.status(200).json({ 
             message: 'Class gotten successfully', 
@@ -58,8 +57,8 @@ const getAllClassProfiles = async (req, res) => {
 
 const updateClassProfile = async (req, res) => {
     try {
-        const { email } = req.params
-        const classData = await updateClass(email) 
+        const { streamCode } = req.params
+        const classData = await updateClass(streamCode) 
 
         res.status(200).json({ 
             message: 'Class updated successfully', 
@@ -73,8 +72,8 @@ const updateClassProfile = async (req, res) => {
 
 const deleteClassProfile = async (req, res) => {
     try {
-        const { email } = req.params
-        const classData = await deleteClass(email)
+        const { streamCode } = req.params
+        const classData = await deleteClass(streamCode)
 
         res.status(200).json({ message: 'Class deleted successfully', classData });
 

@@ -38,7 +38,7 @@ const adminSignup = async (req, res) => {
 const getAdminProfile = async (req, res) => {
     try {
         const { email } = req.params
-        const admin = await getUser(email)
+        const admin = await getAdmin(email)
 
         res.status(200).json({ message: 'Admin gotten successfully', admin });
 

@@ -7,13 +7,13 @@ const  createClass= async(ClassData) =>{
 
   const getAllClass = async () => {
         try {
-            const classData = await classData.find(classData);
+            const classData = await Class.find();
             return classData;
         } catch (errors) {
             console.log(errors);
         }
     }
-    const getClassById = async() => {
+    const getClassById = async(Id) => {
         try {
             const classData = await Class.findById({ Id });
     
@@ -28,23 +28,23 @@ const  createClass= async(ClassData) =>{
         }
     }
 
-    const deleteClass = async () => {
+    const deleteClass = async (Id) => {
         try {
-            const classData = await classData.findByIdAndDelete(id); 
+            const classData = await Class.findByIdAndDelete(Id); 
             if (!classData) {
                 throw new Error('Class not found');
             }
     
             return ; classData
         } catch (error) {
-            console.log(errors);
+            console.log(error);
             
         }
     };
     
-    const updateClass = async (id) => {
+    const updateClass = async (Id) => {
         try {
-            const classData = await ClassData.findByIdAndUpdate(id); 
+            const classData = await Class.findByIdAndUpdate(Id); 
             if (!classData) {
                 console.log('Class not found');
     
@@ -52,7 +52,7 @@ const  createClass= async(ClassData) =>{
     
             return student; 
         } catch (error) {
-            console.log(errors);
+            console.log(error);
         }
     };
 

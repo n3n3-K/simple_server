@@ -1,5 +1,38 @@
 const { createUser, getAllUsers, getUserByEmail, updateUser, deleteUser,  } = require("../services/user.services")
 
+const getallUsers= async(res,req) =>{
+    try{
+        const users= await getAllUsersProfiles()
+        return;
+    }
+    catch(error){
+    console.log(error);
+    }
+}
+
+const updateUser= async (res,req) =>{
+    try{
+        const users= await updateUserProfile()
+            return;
+    }
+    catch (error){
+    console.log(error);
+    }
+}
+
+
+const deleteuser= async (res,req) =>{
+    try{
+        const users= await deleteUserProfile()
+            return;
+    }
+    catch (error){
+    console.log(error);
+    }
+}
+
+
+
 const userSignup= async(res, req)=>{
     
     try{
